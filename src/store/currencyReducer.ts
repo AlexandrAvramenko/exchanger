@@ -28,15 +28,15 @@ const currencyReducer = (state = initialState , action: currencyAction): currenc
     switch (action.type) {
         case currencyActionTypes.GET_CURRENCIES:
             return {
-                currency: action.payload, convert: state.convert
+                ...state, currency: action.payload
             }
         case currencyActionTypes.CHANGING_BASE_CURRENCY:
             return {
-                currency: action.payload, convert: state.convert
+                ...state, currency: action.payload
             }
         case currencyActionTypes.CONVERT_CURRENCY:
             return {
-                currency: state.currency, convert: action.payload
+                ...state, convert: action.payload
             }
         default:
             return state
